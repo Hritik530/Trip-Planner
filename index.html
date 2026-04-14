@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title> Route Optimizer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/normalize.css/normalize.css">
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-core.js" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-service.js" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-ui.js" charset="utf-8"></script>
+  <script src="https://js.api.here.com/v3/3.1/mapsjs-mapevents.js" charset="utf-8"></script>
+</head>
+<body>
+  <header>
+    <h1>Smart Trip Planner</h1>
+  </header>
+  <main>
+    <section class="hero">
+      <div class="card">
+        <form>
+          <div class="form-group">
+            <label for="start">Start Location</label>
+            <input type="text" id="start" placeholder="e.g. Bhopal" />
+          </div>
+          <div class="form-group">
+            <label for="end">End Location</label>
+            <input type="text" id="end" placeholder="e.g. Indore" />
+          </div>
+          <div class="form-group">
+            <label for="preference">Preference</label>
+            <select id="preference">
+              <option value="100-1000-0000">Restaurants</option>
+              <option value="800-8000-0000">Hospitals</option>
+              <option value="700-7010-0108">ATMs</option>
+              <option value="700-7600-0000">Petrol Stations</option>
+            </select>
+          </div>
+          <button type="button" onclick="optimizeRoute()" class="btn-primary">Find Optimized Route</button>
+        </form>
+      </div>
+    </section>
+    <section class="map-section">
+      <div id="mapContainer"></div>
+      <div class="map-overlay">
+        <div id="distanceDisplay">Total Distance: Calculating...</div>
+        <div id="segmentDistance">Segment Distance: Calculating...</div>
+      </div>
+    </section>
+    <section class="controls">
+      <button id="nextButton" class="btn-secondary">Next</button>
+      <button id="addWaypointButton" class="btn-accent">+</button>
+      <button id="optimizeRouteButton" class="btn-primary">Optimize Route</button>
+    </section>
+  </main>
+  <script type="module" src="script.js"></script>
+</body>
+</html>
